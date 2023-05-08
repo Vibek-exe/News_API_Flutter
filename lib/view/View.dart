@@ -21,24 +21,41 @@ class HomeView extends GetWidget<NewsViewModel>{
                 itemBuilder: (context, index){
                   return Column(
                     children: [
-                      Container(
+                      SizedBox(
                         width: double.infinity,
                         height: 220,
                         child: Image.network(data.articles![index].urlToImage.toString(),
                         fit: BoxFit.fill),
                       ),
-
                       Text(data.articles![index].title.toString(),style: const TextStyle(
                         fontSize: 20,
                         fontWeight: FontWeight.bold
                       ),
                       textDirection: TextDirection.ltr),
+                      Padding(
+                        padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+                        child: Container(
+                          padding: const EdgeInsets.all(0.0),
+                          width: double.infinity,
+                          height: 6.0,
+                        ), //Container
+                      ),
                       Text(data.articles![index].description.toString(),style: const TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.normal,
                         color: Colors.green
                       ),
-                      textDirection: TextDirection.ltr)
+                      textDirection: TextDirection.ltr),
+
+                      Padding(
+                        padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+                        child: Container(
+                          padding: const EdgeInsets.all(0.0),
+                          width: double.infinity,
+                          height: 40.0,
+                        ), //Container
+                      ),
+
                     ],
                   );
                 }
