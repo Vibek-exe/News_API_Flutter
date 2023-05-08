@@ -11,6 +11,26 @@ class HomeView extends GetWidget<NewsViewModel>{
   @override
   Widget build(BuildContext context){
     return Scaffold(
+      extendBodyBehindAppBar: true,
+      appBar: AppBar(
+        brightness: Brightness.dark,
+        toolbarHeight: 60,
+        backgroundColor: Colors.transparent,
+        elevation: 0, // Remove Shadow From Toolbar corners
+        title: Text("News API Fetch"),
+        centerTitle: true,
+        flexibleSpace: Container(
+          decoration: const BoxDecoration(
+            borderRadius: BorderRadius.only(bottomLeft: Radius.circular(20),bottomRight: Radius.circular(20)),
+            gradient: LinearGradient(
+                colors: [Colors.red,Colors.pink],
+              begin: Alignment.bottomCenter,
+              end: Alignment.topCenter
+            ),
+          ),
+        ),
+
+      ),
       body: FutureBuilder(
         future: controller.getData(),
         builder: (context,AsyncSnapshot snapshot){
